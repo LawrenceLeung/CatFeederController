@@ -11225,6 +11225,40 @@ Footprints somewhat modified from Adafruits (1206)</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="supply1">
+<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
+ GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
+ Please keep in mind, that these devices are necessary for the
+ automatic wiring of the supply signals.&lt;p&gt;
+ The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
+ In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
+ &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="VCC">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="VCC" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="VCC" symbol="VCC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11268,6 +11302,9 @@ Footprints somewhat modified from Adafruits (1206)</description>
 <part name="C7" library="LL" deviceset="C-US" device="C0603" value="1uF"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-2X2" device="/90"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="P+1" library="supply1" deviceset="VCC" device=""/>
+<part name="P+2" library="supply1" deviceset="VCC" device=""/>
+<part name="R3" library="LL" deviceset="R-US_" device="R0805" value="100k"/>
 </parts>
 <sheets>
 <sheet>
@@ -11308,6 +11345,9 @@ Footprints somewhat modified from Adafruits (1206)</description>
 <instance part="C7" gate="G$1" x="-78.74" y="116.84"/>
 <instance part="JP1" gate="A" x="45.72" y="121.92"/>
 <instance part="GND1" gate="1" x="-81.28" y="104.14"/>
+<instance part="P+1" gate="VCC" x="-66.04" y="127"/>
+<instance part="P+2" gate="VCC" x="-71.12" y="71.12"/>
+<instance part="R3" gate="G$1" x="-71.12" y="60.96" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -11462,8 +11502,12 @@ Footprints somewhat modified from Adafruits (1206)</description>
 <net name="RST" class="0">
 <segment>
 <pinref part="J1" gate="J" pin="RST"/>
-<wire x1="-50.8" y1="53.34" x2="-55.88" y2="53.34" width="0.1524" layer="91"/>
-<label x="-55.88" y="53.34" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="-50.8" y1="53.34" x2="-71.12" y2="53.34" width="0.1524" layer="91"/>
+<label x="-76.2" y="53.34" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="-71.12" y1="53.34" x2="-76.2" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="53.34" x2="-71.12" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-71.12" y="53.34"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB5/PCINT5/!RESET!/ADC0/DW"/>
@@ -11526,21 +11570,7 @@ Footprints somewhat modified from Adafruits (1206)</description>
 <pinref part="C3" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="VCCF" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="VCC"/>
-<pinref part="FB" gate="G$1" pin="1"/>
-<wire x1="-43.18" y1="119.38" x2="-53.34" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="119.38" x2="-53.34" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="C7" gate="G$1" pin="1"/>
-<wire x1="-53.34" y1="119.38" x2="-78.74" y2="119.38" width="0.1524" layer="91"/>
-<junction x="-53.34" y="119.38"/>
-<pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="-78.74" y1="119.38" x2="-86.36" y2="119.38" width="0.1524" layer="91"/>
-<junction x="-78.74" y="119.38"/>
-</segment>
-</net>
-<net name="N$8" class="0">
+<net name="VIN" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="1"/>
 <pinref part="JP1" gate="A" pin="2"/>
@@ -11553,6 +11583,29 @@ Footprints somewhat modified from Adafruits (1206)</description>
 <wire x1="48.26" y1="124.46" x2="58.42" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="124.46" x2="63.5" y2="127" width="0.1524" layer="91"/>
 <junction x="48.26" y="124.46"/>
+</segment>
+</net>
+<net name="VCC" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="VCC"/>
+<pinref part="FB" gate="G$1" pin="1"/>
+<wire x1="-43.18" y1="119.38" x2="-53.34" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="119.38" x2="-53.34" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="-53.34" y1="119.38" x2="-66.04" y2="119.38" width="0.1524" layer="91"/>
+<junction x="-53.34" y="119.38"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="-66.04" y1="119.38" x2="-78.74" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="-78.74" y1="119.38" x2="-86.36" y2="119.38" width="0.1524" layer="91"/>
+<junction x="-78.74" y="119.38"/>
+<pinref part="P+1" gate="VCC" pin="VCC"/>
+<wire x1="-66.04" y1="119.38" x2="-66.04" y2="124.46" width="0.1524" layer="91"/>
+<junction x="-66.04" y="119.38"/>
+</segment>
+<segment>
+<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
+<wire x1="-71.12" y1="66.04" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

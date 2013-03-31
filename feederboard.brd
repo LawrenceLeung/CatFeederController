@@ -552,6 +552,27 @@ chip</description>
 </package>
 </packages>
 </library>
+<library name="adafruit">
+<packages>
+<package name="R1206">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
+chip</description>
+<wire x1="0.9525" y1="-0.8128" x2="-0.9652" y2="-0.8128" width="0.1524" layer="51"/>
+<wire x1="0.9525" y1="0.8128" x2="-0.9652" y2="0.8128" width="0.1524" layer="51"/>
+<wire x1="-2.473" y1="0.983" x2="2.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="2.473" y1="0.983" x2="2.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="2.473" y1="-0.983" x2="-2.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-2.473" y1="-0.983" x2="-2.473" y2="0.983" width="0.0508" layer="39"/>
+<smd name="2" x="1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<smd name="1" x="-1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<text x="-1.397" y="1.143" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.397" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.6891" y1="-0.8763" x2="-0.9525" y2="0.8763" layer="51"/>
+<rectangle x1="0.9525" y1="-0.8763" x2="1.6891" y2="0.8763" layer="51"/>
+<rectangle x1="-0.3" y1="-0.7" x2="0.3" y2="0.7" layer="35"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -771,6 +792,7 @@ Toner transfer etch tuned DRU
 <element name="C7" library="LL" package="C0603" value="1uF" x="22.352" y="31.75" rot="R45"/>
 <element name="JP1" library="pinhead" package="2X02/90" value="" x="39.37" y="7.62" rot="R180"/>
 <element name="R3" library="LL" package="R0805" value="100k" x="19.05" y="29.718" rot="R135"/>
+<element name="F1" library="adafruit" package="R1206" value="" x="29.21" y="34.544" rot="R180"/>
 </elements>
 <signals>
 <signal name="N$4">
@@ -795,33 +817,28 @@ Toner transfer etch tuned DRU
 <contactref element="D1" pad="C"/>
 <contactref element="J1" pad="2"/>
 <contactref element="FB" pad="2"/>
-<contactref element="IC2" pad="2"/>
-<contactref element="C4" pad="1"/>
 <wire x1="16.1036" y1="39.7256" x2="20.32" y2="39.7256" width="0.8128" layer="1"/>
 <wire x1="15.24" y1="38.862" x2="16.1036" y2="39.7256" width="0.3048" layer="1"/>
 <wire x1="20.32" y1="39.7256" x2="20.32" y2="39.64" width="0.3048" layer="1"/>
 <wire x1="15.24" y1="38.862" x2="15.24" y2="38.84" width="0.3048" layer="1"/>
-<wire x1="36.0172" y1="34.544" x2="31.75" y2="34.544" width="0.8128" layer="1"/>
-<wire x1="36.2712" y1="34.29" x2="36.0172" y2="34.544" width="0.3048" layer="1"/>
-<wire x1="31.75" y1="34.544" x2="33.274" y2="34.56" width="0.3048" layer="1"/>
 <wire x1="12.2428" y1="30.48" x2="10.16" y2="30.48" width="0.4064" layer="1"/>
 <wire x1="12.446" y1="30.4292" x2="12.2428" y2="30.48" width="0.3048" layer="1"/>
 <wire x1="12.446" y1="30.4292" x2="16.818890625" y2="28.39310625" width="0.6096" layer="1"/>
 <wire x1="20.5232" y1="34.4424" x2="20.828" y2="36.322" width="0.4064" layer="1"/>
 <wire x1="20.828" y1="36.322" x2="21.082" y2="36.322" width="0.6096" layer="1"/>
 <wire x1="21.082" y1="36.322" x2="25.4" y2="36.322" width="0.254" layer="1"/>
-<wire x1="25.4" y1="36.322" x2="31.3944" y2="34.4424" width="0.8128" layer="1"/>
 <wire x1="16.6116" y1="28.2448" x2="18.034" y2="28.702" width="0.6096" layer="1"/>
 <wire x1="18.034" y1="28.702" x2="20.066" y2="30.734" width="0.254" layer="1"/>
 <wire x1="20.066" y1="30.734" x2="20.2692" y2="34.4424" width="0.6096" layer="1"/>
 <wire x1="20.2692" y1="34.4424" x2="20.5232" y2="34.4424" width="0.3048" layer="1"/>
-<wire x1="31.3944" y1="34.4424" x2="33.274" y2="34.56" width="0.3048" layer="1"/>
 <wire x1="16.6116" y1="28.2448" x2="16.818890625" y2="28.39310625" width="0.6096" layer="1"/>
 <wire x1="20.4216" y1="34.29" x2="20.4216" y2="39.624" width="0.6096" layer="1"/>
 <wire x1="20.4216" y1="39.624" x2="20.32" y2="39.64" width="0.3048" layer="1"/>
 <wire x1="20.4216" y1="34.29" x2="20.2692" y2="34.4424" width="0.3048" layer="1"/>
 <wire x1="15.5448" y1="39.37" x2="7.62" y2="39.37" width="0.8128" layer="1"/>
 <wire x1="15.5448" y1="39.37" x2="15.24" y2="38.84" width="0.3048" layer="1"/>
+<contactref element="F1" pad="2"/>
+<wire x1="27.788" y1="34.544" x2="25.4" y2="36.322" width="0.6096" layer="1"/>
 </signal>
 <signal name="GND" airwireshidden="yes">
 <contactref element="Q1" pad="2"/>
@@ -1053,6 +1070,18 @@ Toner transfer etch tuned DRU
 <via x="5.08" y="50.292" extent="1-16" drill="3.2" diameter="10.16" shape="square"/>
 <via x="62.738" y="49.784" extent="1-16" drill="3.2" diameter="10.16" shape="square"/>
 <wire x1="5.08" y1="50.292" x2="62.738" y2="49.784" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="VR-OUTSM">
+<contactref element="IC2" pad="2"/>
+<contactref element="C4" pad="1"/>
+<contactref element="F1" pad="1"/>
+<wire x1="36.0172" y1="34.544" x2="31.75" y2="34.544" width="0.8128" layer="1"/>
+<wire x1="36.2712" y1="34.29" x2="36.0172" y2="34.544" width="0.3048" layer="1"/>
+<wire x1="31.75" y1="34.544" x2="33.274" y2="34.56" width="0.3048" layer="1"/>
+<wire x1="30.632" y1="34.544" x2="31.242" y2="35.052" width="0.4064" layer="1"/>
+<wire x1="31.242" y1="35.052" x2="31.242" y2="34.798" width="0.4064" layer="1"/>
+<wire x1="31.242" y1="34.798" x2="31.75" y2="34.798" width="0.4064" layer="1"/>
+<wire x1="31.75" y1="34.798" x2="31.75" y2="34.544" width="0.4064" layer="1"/>
 </signal>
 </signals>
 </board>
